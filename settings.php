@@ -39,6 +39,50 @@ if ($hassiteconfig) {
         )
     );
 
+    // Build the bulk-action URL.
+    $bulkactionurl = new moodle_url('/local/coursesettings/bulk_ai_action.php');
+
+    // Render the two bulk action buttons as an HTML setting.
+    $buttonshtml = html_writer::start_div('local-coursesettings-bulk-actions mt-3 mb-3');
+
+    $buttonshtml .= html_writer::tag(
+        'button',
+        get_string('disableaitools_all', 'local_coursesettings'),
+        [
+            'id'    => 'local-coursesettings-disable-ai',
+            'class' => 'btn btn-danger me-2',
+            'type'  => 'button',
+        ]
+    );
+
+    $buttonshtml .= html_writer::tag(
+        'button',
+        get_string('enableaitools_all', 'local_coursesettings'),
+        [
+            'id'    => 'local-coursesettings-enable-ai',
+            'class' => 'btn btn-success text-white',
+            'type'  => 'button',
+        ]
+    );
+
+    $buttonshtml .= html_writer::end_div();
+
+    $settings->add(
+        new admin_setting_heading(
+            'local_coursesettings/bulkactions',
+            get_string('disableaitools_all', 'local_coursesettings') . ' / ' .
+                get_string('enableaitools_all', 'local_coursesettings'),
+            $buttonshtml
+        )
+    );
+
+    // Initialise the AMD module that handles modal confirmations and form submission.
+    $PAGE->requires->js_call_amd(
+        'local_coursesettings/bulk_ai_actions',
+        'init',
+        [$bulkactionurl->out(false), sesskey()]
+    );
+
     // Add to the Default settings category.
     $ADMIN->add('coursedefaultsettings', $settings);
 }

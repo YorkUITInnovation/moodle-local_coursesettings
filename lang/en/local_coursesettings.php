@@ -26,3 +26,15 @@ $string['pluginname'] = 'AI Course setting defaults';
 $string['enableaitools'] = 'Enable AI Tools by Default';
 $string['enableaitools_help'] = 'When enabled, all newly created courses will have AI tools enabled by default. Instructors can still disable this setting in individual course settings.';
 
+// Bulk action buttons.
+$string['enableaitools_all'] = 'Enable AI Tools in All Courses';
+$string['disableaitools_all'] = 'Disable AI Tools in All Courses';
+
+// Modal confirmation messages.
+$string['enableaitools_all_confirm'] = 'Are you sure you want to enable AI tools in ALL courses? This will override the current setting for every course on this site.';
+$string['disableaitools_all_confirm'] = 'Are you sure you want to disable AI tools in ALL courses? This will override the current setting for every course on this site.';
+
+// Success notifications.
+$string['enableaitools_all_success'] = 'AI tools have been enabled in all courses.';
+$string['disableaitools_all_success'] = 'AI tools have been disabled in all courses.';
+
