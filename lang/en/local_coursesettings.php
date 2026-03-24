@@ -38,3 +38,4 @@ $string['disableaitools_all_confirm'] = 'Are you sure you want to disable AI too
 $string['enableaitools_all_success'] = 'AI tools have been enabled in all courses.';
 $string['disableaitools_all_success'] = 'AI tools have been disabled in all courses.';
 
+$string['privacy:metadata'] = 'The plugin does not store user data.';
