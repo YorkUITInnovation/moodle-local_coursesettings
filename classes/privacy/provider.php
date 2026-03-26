@@ -14,19 +14,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace local_coursesettings\privacy;
+
 /**
- * Plugin version and other meta-data are defined here.
+ * Class provider
  *
- * @package     local_coursesettings
- * @copyright   2026
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    local_coursesettings
+ * @copyright  2026 Carlos Arce <carlosarcelopera@catalyst-ca.net>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->component = 'local_coursesettings';
-$plugin->release = '1.0.0';
-$plugin->version = 2026020602;
-$plugin->requires = 2024042200;
-$plugin->maturity = MATURITY_BETA;
-
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}
